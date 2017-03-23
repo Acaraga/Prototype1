@@ -18,6 +18,7 @@ class FirstViewController: UIViewController  {
     var n = 0
     var player: AVPlayer?
  
+    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var btnPlayPause: UIBarButtonItem!
     @IBOutlet weak var btnBarAvatar: UIBarButtonItem!
     
@@ -48,10 +49,9 @@ class FirstViewController: UIViewController  {
         // Collection View Slide Show
         print ("***********************")
 
-       // print (scrollView.contentSize)
+       
+        self.navBar.title = "Bad Balance:0"
         
-       //scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 980)
-
        //  print (scrollView.contentSize)
     }
 

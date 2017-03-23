@@ -295,6 +295,7 @@
                     <connections>
                         <outlet property="btnBarAvatar" destination="dyd-Ox-JmQ" id="VkM-c9-2qH"/>
                         <outlet property="btnPlayPause" destination="8WG-Ty-Glp" id="41c-lI-6je"/>
+                        <outlet property="navBar" destination="Kl1-a5-RKJ" id="pFf-Rt-eyd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
