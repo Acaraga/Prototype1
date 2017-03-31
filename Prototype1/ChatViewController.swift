@@ -10,10 +10,12 @@ import UIKit
 import FirebaseDatabase
 import Firebase
 import SwiftyJSON
+import AVFoundation
 
 var recipientEmail = ""
 var recipientNick = ""
 var recipientImage: UIImage?
+var recipientFCMToken = ""
 var isBlocked = false
 
 
@@ -61,12 +63,10 @@ class ChatViewController: UIViewController, UIScrollViewDelegate, UITextViewDele
         
         // Register to receive notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardDidShow), name: notificationName, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: Notification.Name("UIKeyboardWillHideNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardDidHide), name: Notification.Name("UIKeyboardDidHideNotification"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateChat), name: Notification.Name("updateChatNow"), object: nil)
         
-        messageViewY = messageView.frame.origin.y
-        chatScrollH = self.chatScrollView.frame.size.height
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.didTapScrollView))
         tapGestureRecognizer.numberOfTapsRequired = 1
@@ -103,16 +103,16 @@ class ChatViewController: UIViewController, UIScrollViewDelegate, UITextViewDele
         }, completion: nil )
     }
 //==========================================================================================
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardDidHide(notification: NSNotification) {
 //==========================================================================================
 //        let dict: NSDictionary = notification.userInfo! as NSDictionary
 //        let keyboardSize: NSValue = dict.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
 //        let frameKeyBoardSize: CGRect = keyboardSize.cgRectValue
         
         UIView.animate(withDuration: 0.3, animations: {
-            let chatScrollViewOffset = self.messageViewY - self.messageView.frame.origin.y
+          //  let chatScrollViewOffset = self.messageViewY - self.messageView.frame.origin.y
 //             print ("*** chatScrollViewOffset, messageViewY: \(chatScrollViewOffset, self.messageViewY) ")
-            self.chatScrollView.frame.size.height += chatScrollViewOffset
+            self.chatScrollView.frame.size.height = self.chatScrollH
             self.messageView.frame.origin.y = self.messageViewY
             
         }, completion: nil)
@@ -133,6 +133,9 @@ class ChatViewController: UIViewController, UIScrollViewDelegate, UITextViewDele
     //==========================================================================================
     override func viewDidAppear(_ animated: Bool) {
         //==========================================================================================
+        messageViewY = messageView.frame.origin.y
+        chatScrollH = self.chatScrollView.frame.size.height
+
         FIRDatabase.database().reference().child("messages").observe(.value, with: { (snapshot) in
             if let m_value = snapshot.value {
                 self.messageArray.removeAll(keepingCapacity: false)
@@ -146,7 +149,7 @@ class ChatViewController: UIViewController, UIScrollViewDelegate, UITextViewDele
                         self.messageArray.append(( dateFromString(date: subjson["date"].stringValue)!,
                                                                         subjson["message"].stringValue,
                                                                         subjson["sender"].stringValue))
-                        print (subjson)
+                        //print (subjson)
                     } else if subjson["recipient"].stringValue == fireUser?.email &&
                         subjson["sender"].stringValue == recipientEmail {// если я получатель
                         // проверим поступление спец сообщения о начислениях бонусов
@@ -170,7 +173,7 @@ class ChatViewController: UIViewController, UIScrollViewDelegate, UITextViewDele
                                                                         subjson["message"].stringValue,
                                                                         subjson["sender"].stringValue))
                         }
-                        print (subjson)
+                        //print (subjson)
                     }
                 }
             self.updateChat()
@@ -381,7 +384,6 @@ class ChatViewController: UIViewController, UIScrollViewDelegate, UITextViewDele
             return
         }
         
-        
         didTapScrollView()
         
         if msgTextView.text.isEmpty {
@@ -389,49 +391,22 @@ class ChatViewController: UIViewController, UIScrollViewDelegate, UITextViewDele
             print ("@@@no text in msg@@@")
         } else {
             
-//            let messageDB = PFObject (className: "Message")
-//            messageDB["sender"] = currentUserName
-//            messageDB["recipient"] = recipientNick
-//            messageDB["message"] = self.msgTextView.text
-            
             self.ref.child("messages").childByAutoId().setValue([ "sender": currentUserEmail,
                                                                   "recipient": recipientEmail,
                                                                   "date": String(describing: Date()),
                                                                   "message": self.msgTextView.text!])
             
-//            messageDB.saveInBackground(block: { (success: Bool, error:Error?) in
-//                if success {
-//                    
-//                    let userQuery: PFQuery = PFUser.query()!
-//                    userQuery.whereKey("username", equalTo: recipientNick)
-//                    let pushQuery = PFInstallation.query()!
-//                    pushQuery.whereKey("user", matchesQuery: userQuery)
-//                    
-//                    let push: PFPush = PFPush()
-//                    push.setQuery(pushQuery as? PFQuery<PFInstallation>)
-//                    push.setMessage("SecretChat: Тебе письмо!")
-//                    
-//                    do {
-//                        try push.send()
-//                        print ("==Push ok sent===")
-//                    } catch let error as NSError {
-//                        print ("Push send error: \(error.localizedDescription)")
-//                        
-//                        
-//                    }
+// ************************************ [PUSH SECTION] ****************************
+                    let manager = ManagerData()
+            manager.sendFCM(toToken: recipientFCMToken, title: currentUserNick, body: self.msgTextView.text!, complition: { (msgid, success) in
+                    print ("*** message sent *** pushid: \(msgid) success: \(success)")
+                    })
+// ************************************ [ END PUSH ] ******************************
             
-                    
-                    print ("*** message sent ***")
                     self.msgTextView.text = ""
                     self.promptLabel.isHidden = false
-                    //self.updateChat()
-                    
-//                } else {
-//                    print ("message not saved error: \(error?.localizedDescription)")
-//                }
-//            })
             
-        }
+         }
         
     }
 

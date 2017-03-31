@@ -9,7 +9,9 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Storage'
+pod 'Firebase/Messaging'
 pod 'SwiftyJSON', '~> 3.1'
+pod ‘Alamofire’
 # Pods for Prototype1
 
 end

@@ -18,6 +18,7 @@
 		C421849B1E85D7E2000DBF26 /* AVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C421849A1E85D7E2000DBF26 /* AVPlayerViewController.swift */; };
 		C429F2491E79571600AB4F01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C429F2481E79571600AB4F01 /* GoogleService-Info.plist */; };
 		C429F24B1E79F2A400AB4F01 /* currentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C429F24A1E79F2A400AB4F01 /* currentUser.swift */; };
+		C452A0071E8DBE1C00921AC6 /* ManagerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C452A0061E8DBE1C00921AC6 /* ManagerData.swift */; };
 		C48D9AD91E78666D005B4FCA /* regViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D9AD81E78666D005B4FCA /* regViewController.swift */; };
 		C48D9ADB1E786685005B4FCA /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D9ADA1E786685005B4FCA /* signUpViewController.swift */; };
 		C4959F231E81633D00B42D97 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959F221E81633D00B42D97 /* ChatViewController.swift */; };
@@ -43,6 +44,7 @@
 		C421849A1E85D7E2000DBF26 /* AVPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerViewController.swift; sourceTree = "<group>"; };
 		C429F2481E79571600AB4F01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C429F24A1E79F2A400AB4F01 /* currentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = currentUser.swift; sourceTree = "<group>"; };
+		C452A0061E8DBE1C00921AC6 /* ManagerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerData.swift; sourceTree = "<group>"; };
 		C48D9AD81E78666D005B4FCA /* regViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = regViewController.swift; sourceTree = "<group>"; };
 		C48D9ADA1E786685005B4FCA /* signUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		C4959F221E81633D00B42D97 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				C48D9ADA1E786685005B4FCA /* signUpViewController.swift */,
 				C4F997E31E7C02D6003A5533 /* MyExt.swift */,
 				C42184961E85C8F0000DBF26 /* FilePlist.swift */,
+				C452A0061E8DBE1C00921AC6 /* ManagerData.swift */,
 				C429F24A1E79F2A400AB4F01 /* currentUser.swift */,
 				C48D9AD81E78666D005B4FCA /* regViewController.swift */,
 				C4F997E51E7C200E003A5533 /* ChatsTableViewController.swift */,
@@ -267,6 +270,7 @@
 				C4EEFFA71E7FEAA600FB9A72 /* ChatUsersViewController.swift in Sources */,
 				C41B4B941E72F0D70095A68A /* SecondViewController.swift in Sources */,
 				C4EEFFA31E7FE5FC00FB9A72 /* UserTableViewCell.swift in Sources */,
+				C452A0071E8DBE1C00921AC6 /* ManagerData.swift in Sources */,
 				C4F997E21E7BEA33003A5533 /* Scroll1ViewController.swift in Sources */,
 				C41B4B901E72F0D70095A68A /* AppDelegate.swift in Sources */,
 				C41B4B921E72F0D70095A68A /* FirstViewController.swift in Sources */,
@@ -400,7 +404,7 @@
 				CODE_SIGN_ENTITLEMENTS = Prototype1/Prototype1.entitlements;
 				DEVELOPMENT_TEAM = JAJ58996GT;
 				INFOPLIST_FILE = Prototype1/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.prototype1.ru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -416,7 +420,7 @@
 				CODE_SIGN_ENTITLEMENTS = Prototype1/Prototype1.entitlements;
 				DEVELOPMENT_TEAM = JAJ58996GT;
 				INFOPLIST_FILE = Prototype1/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.prototype1.ru;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -274,7 +274,11 @@
                                                 </connections>
                                             </barButtonItem>
                                         </leftBarButtonItems>
-                                        <barButtonItem key="rightBarButtonItem" image="2_002_32" style="plain" id="dyd-Ox-JmQ"/>
+                                        <barButtonItem key="rightBarButtonItem" image="2_002_32" style="plain" id="dyd-Ox-JmQ">
+                                            <connections>
+                                                <action selector="btnAvaPressed:" destination="9pv-A4-QxB" id="nDB-pO-qzh"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

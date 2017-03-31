@@ -30,6 +30,8 @@ class ChatUsersViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var userEmailsArray :[String] = []
     var nicknamesArray: [String] = []
+    var fireKeysArray: [String] = []
+
     var profileImageArray: [UIImage?]?
 
 
@@ -46,11 +48,12 @@ class ChatUsersViewController: UIViewController, UITableViewDelegate, UITableVie
 
                 self.userEmailsArray.removeAll(keepingCapacity: false)
                 self.nicknamesArray.removeAll(keepingCapacity: false)
+                self.fireKeysArray.removeAll(keepingCapacity: false)
                 self.profileImageArray = nil
 
                 let json = JSON (u_value)
-                for (_, subjson) in json {
-                    print (subjson)
+                for (key, subjson) in json {
+                //    print (subjson)
                 if subjson["login"].stringValue == fireUser?.email {// если пользователь - я сам
                     currentUserNick = ( subjson["name"].stringValue + " " + subjson["surname"].stringValue)
                     currentUserEmail = fireUser!.email!
@@ -59,6 +62,8 @@ class ChatUsersViewController: UIViewController, UITableViewDelegate, UITableVie
                 } else { // если остальные - добавляем в массив чатов
                     self.nicknamesArray.append( subjson["name"].stringValue + " " + subjson["surname"].stringValue)
                     self.userEmailsArray.append(subjson["login"].stringValue)
+                    self.fireKeysArray.append(key)
+                    
                     }
                     
                 }
@@ -128,6 +133,10 @@ class ChatUsersViewController: UIViewController, UITableViewDelegate, UITableVie
         recipientEmail = cell.lblEmail.text!
         recipientNick = cell.lblLogin.text!
         recipientImage = cell.imgProfile.image
+        let firekey = self.fireKeysArray[indexPath.row]
+        getUserFCMTokenByKey(key: firekey) { (token) in
+            recipientFCMToken = token
+        }
         performSegue(withIdentifier: "chatSegue", sender: self)
     }
     

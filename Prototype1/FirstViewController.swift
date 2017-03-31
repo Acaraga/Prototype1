@@ -43,7 +43,7 @@ class FirstViewController: UIViewController  {
                         self.getUserBalanceByKey(key: currentUserKey, complition: { (myBalance) in
                             currentUserBalance = myBalance
                             self.navBar.title = "Мои баллы: \(currentUserBalance)"
-                            
+                            self.setMyFCMTokenByKey(key: currentUserKey)
                         })
                         
                     }
@@ -112,6 +112,20 @@ class FirstViewController: UIViewController  {
         })
     }
     
+//==============================update FCM token for PUSHes=====================
+    func setMyFCMTokenByKey (key: String) {
+//==============================================================================
+        let   ref = FIRDatabase.database().reference()
+        let token = FIRInstanceID.instanceID().token()
+        // Сохранение данных пользователя
+        let post = ["date": String(describing: Date()),
+                    "token": token]
+        let childUpdates = ["users/\(key)/tokenFCM": post,
+                            ]
+        ref.updateChildValues(childUpdates)
+        
+    }
+    
     
     @IBAction func btnPlayPressed(_ sender: Any) {
         do {try AVAudioSession.sharedInstance().setCategory( AVAudioSessionCategoryPlayback)
@@ -139,6 +153,20 @@ class FirstViewController: UIViewController  {
         
       //  print(player?.status)
     }
-  
-}
+
+    @IBAction func btnAvaPressed(_ sender: Any) {
+        let manager: ManagerData = ManagerData()
+        
+        let token = FIRInstanceID.instanceID().token()
+        
+        manager.sendFCM(toToken: token!, title: "Ералаш:1", body: "", complition: {  (strId, sucDbl) in
+            print ("*** message_id: \(strId) ,  Success: \(sucDbl)")
+        })
+        
+    }
+    
+    
+    }
+
+
 
