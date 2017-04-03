@@ -44,6 +44,22 @@ func getUserBalanceByKey (key: String, complition: @escaping (Float) -> ()) -> (
         print ("*** AND The Balance for me is: \(sumBalance)")
     })
 }
+//==============================update FCM token for PUSHes=====================
+func setMyFCMTokenByKey (key: String) {
+    //==============================================================================
+    let   ref = FIRDatabase.database().reference()
+    let token = FIRInstanceID.instanceID().token()
+    // Сохранение данных пользователя
+    if token != "" {
+        
+        let post = ["date": String(describing: Date()),
+                    "token": token]
+        let childUpdates = ["users/\(key)/tokenFCM": post,
+                            ]
+        ref.updateChildValues(childUpdates)
+    }
+}
+
 
 //============вычисление  tokenFCM пользователя по ключу===================
 func getUserFCMTokenByKey (key: String, complition: @escaping (String) -> ()) -> () {

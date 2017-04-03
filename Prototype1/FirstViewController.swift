@@ -43,7 +43,7 @@ class FirstViewController: UIViewController  {
                         self.getUserBalanceByKey(key: currentUserKey, complition: { (myBalance) in
                             currentUserBalance = myBalance
                             self.navBar.title = "Мои баллы: \(currentUserBalance)"
-                            self.setMyFCMTokenByKey(key: currentUserKey)
+                            setMyFCMTokenByKey(key: currentUserKey)
                         })
                         
                     }
@@ -110,20 +110,6 @@ class FirstViewController: UIViewController  {
             complition (sumBalance)
             print ("*** AND The Balance for me is: \(sumBalance)")
         })
-    }
-    
-//==============================update FCM token for PUSHes=====================
-    func setMyFCMTokenByKey (key: String) {
-//==============================================================================
-        let   ref = FIRDatabase.database().reference()
-        let token = FIRInstanceID.instanceID().token()
-        // Сохранение данных пользователя
-        let post = ["date": String(describing: Date()),
-                    "token": token]
-        let childUpdates = ["users/\(key)/tokenFCM": post,
-                            ]
-        ref.updateChildValues(childUpdates)
-        
     }
     
     

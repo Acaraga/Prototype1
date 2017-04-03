@@ -12,8 +12,6 @@ import Alamofire
 import SwiftyJSON
 
 
-let apiKeyStr = ""
-
 class ManagerData{
     
     

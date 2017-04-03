@@ -168,7 +168,7 @@
 					C41B4B8B1E72F0D70095A68A = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = JAJ58996GT;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -402,12 +402,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Prototype1/Prototype1.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JAJ58996GT;
 				INFOPLIST_FILE = Prototype1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.prototype1.ru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "db82c24b-b571-4055-be4e-165e92540975";
+				PROVISIONING_PROFILE_SPECIFIER = prototype1;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -418,12 +422,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Prototype1/Prototype1.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = JAJ58996GT;
 				INFOPLIST_FILE = Prototype1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.prototype1.ru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "47b16b3c-6a21-4239-b152-5225a76046ec";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: home.prototype1.ru";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
