@@ -15,7 +15,6 @@
 		C41B4B991E72F0D70095A68A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41B4B981E72F0D70095A68A /* Assets.xcassets */; };
 		C41B4B9C1E72F0D70095A68A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41B4B9A1E72F0D70095A68A /* LaunchScreen.storyboard */; };
 		C42184971E85C8F0000DBF26 /* FilePlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42184961E85C8F0000DBF26 /* FilePlist.swift */; };
-		C421849B1E85D7E2000DBF26 /* AVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C421849A1E85D7E2000DBF26 /* AVPlayerViewController.swift */; };
 		C429F2491E79571600AB4F01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C429F2481E79571600AB4F01 /* GoogleService-Info.plist */; };
 		C429F24B1E79F2A400AB4F01 /* currentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C429F24A1E79F2A400AB4F01 /* currentUser.swift */; };
 		C452A0071E8DBE1C00921AC6 /* ManagerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C452A0061E8DBE1C00921AC6 /* ManagerData.swift */; };
@@ -41,7 +40,6 @@
 		C41B4B9B1E72F0D70095A68A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C41B4B9D1E72F0D70095A68A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C42184961E85C8F0000DBF26 /* FilePlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePlist.swift; sourceTree = "<group>"; };
-		C421849A1E85D7E2000DBF26 /* AVPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerViewController.swift; sourceTree = "<group>"; };
 		C429F2481E79571600AB4F01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C429F24A1E79F2A400AB4F01 /* currentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = currentUser.swift; sourceTree = "<group>"; };
 		C452A0061E8DBE1C00921AC6 /* ManagerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerData.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				C4F997E51E7C200E003A5533 /* ChatsTableViewController.swift */,
 				C41B4B911E72F0D70095A68A /* FirstViewController.swift */,
 				C4F997E11E7BEA33003A5533 /* Scroll1ViewController.swift */,
-				C421849A1E85D7E2000DBF26 /* AVPlayerViewController.swift */,
 				C41B4B931E72F0D70095A68A /* SecondViewController.swift */,
 				C4EEFFA21E7FE5FC00FB9A72 /* UserTableViewCell.swift */,
 				C4EEFFA61E7FEAA600FB9A72 /* ChatUsersViewController.swift */,
@@ -278,7 +275,6 @@
 				C429F24B1E79F2A400AB4F01 /* currentUser.swift in Sources */,
 				C48D9AD91E78666D005B4FCA /* regViewController.swift in Sources */,
 				C4959F231E81633D00B42D97 /* ChatViewController.swift in Sources */,
-				C421849B1E85D7E2000DBF26 /* AVPlayerViewController.swift in Sources */,
 				C4F997E61E7C200E003A5533 /* ChatsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
