@@ -24,6 +24,8 @@
 		C4959F231E81633D00B42D97 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959F221E81633D00B42D97 /* ChatViewController.swift */; };
 		C4EEFFA31E7FE5FC00FB9A72 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EEFFA21E7FE5FC00FB9A72 /* UserTableViewCell.swift */; };
 		C4EEFFA71E7FEAA600FB9A72 /* ChatUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EEFFA61E7FEAA600FB9A72 /* ChatUsersViewController.swift */; };
+		C4F906B41EC27765009302E1 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F906B11EC27765009302E1 /* FeedTableViewController.swift */; };
+		C4F906B51EC27765009302E1 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F906B21EC27765009302E1 /* FeedTableViewCell.swift */; };
 		C4F997E21E7BEA33003A5533 /* Scroll1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F997E11E7BEA33003A5533 /* Scroll1ViewController.swift */; };
 		C4F997E41E7C02D6003A5533 /* MyExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F997E31E7C02D6003A5533 /* MyExt.swift */; };
 		C4F997E61E7C200E003A5533 /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F997E51E7C200E003A5533 /* ChatsTableViewController.swift */; };
@@ -51,6 +53,9 @@
 		C4EEFFA21E7FE5FC00FB9A72 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		C4EEFFA61E7FEAA600FB9A72 /* ChatUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUsersViewController.swift; sourceTree = "<group>"; };
 		C4EEFFAA1E80650C00FB9A72 /* Prototype1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prototype1.entitlements; sourceTree = "<group>"; };
+		C4F906B11EC27765009302E1 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		C4F906B21EC27765009302E1 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		C4F906B91EC27A5A009302E1 /* Prototype1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Prototype1-Bridging-Header.h"; sourceTree = "<group>"; };
 		C4F997E11E7BEA33003A5533 /* Scroll1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scroll1ViewController.swift; sourceTree = "<group>"; };
 		C4F997E31E7C02D6003A5533 /* MyExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyExt.swift; sourceTree = "<group>"; };
 		C4F997E51E7C200E003A5533 /* ChatsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +81,7 @@
 				C41B4B8D1E72F0D70095A68A /* Products */,
 				F00829569544FEE5E00549D1 /* Pods */,
 				DB565D1D96B86D5552768662 /* Frameworks */,
+				C4F906B91EC27A5A009302E1 /* Prototype1-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +112,7 @@
 				C4EEFFA21E7FE5FC00FB9A72 /* UserTableViewCell.swift */,
 				C4EEFFA61E7FEAA600FB9A72 /* ChatUsersViewController.swift */,
 				C4959F221E81633D00B42D97 /* ChatViewController.swift */,
+				C4F906B71EC2776F009302E1 /* RSSReader */,
 				C41B4B951E72F0D70095A68A /* Main.storyboard */,
 				C41B4B981E72F0D70095A68A /* Assets.xcassets */,
 				C41B4B9A1E72F0D70095A68A /* LaunchScreen.storyboard */,
@@ -113,6 +120,15 @@
 				C41B4B9D1E72F0D70095A68A /* Info.plist */,
 			);
 			path = Prototype1;
+			sourceTree = "<group>";
+		};
+		C4F906B71EC2776F009302E1 /* RSSReader */ = {
+			isa = PBXGroup;
+			children = (
+				C4F906B11EC27765009302E1 /* FeedTableViewController.swift */,
+				C4F906B21EC27765009302E1 /* FeedTableViewCell.swift */,
+			);
+			name = RSSReader;
 			sourceTree = "<group>";
 		};
 		DB565D1D96B86D5552768662 /* Frameworks */ = {
@@ -168,7 +184,8 @@
 					C41B4B8B1E72F0D70095A68A = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = JAJ58996GT;
-						ProvisioningStyle = Manual;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -240,7 +257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C7B3628DCD7802F7F2C97056 /* [CP] Copy Pods Resources */ = {
@@ -268,6 +285,8 @@
 				C48D9ADB1E786685005B4FCA /* signUpViewController.swift in Sources */,
 				C42184971E85C8F0000DBF26 /* FilePlist.swift in Sources */,
 				C4EEFFA71E7FEAA600FB9A72 /* ChatUsersViewController.swift in Sources */,
+				C4F906B51EC27765009302E1 /* FeedTableViewCell.swift in Sources */,
+				C4F906B41EC27765009302E1 /* FeedTableViewController.swift in Sources */,
 				C41B4B941E72F0D70095A68A /* SecondViewController.swift in Sources */,
 				C4EEFFA31E7FE5FC00FB9A72 /* UserTableViewCell.swift in Sources */,
 				C452A0071E8DBE1C00921AC6 /* ManagerData.swift in Sources */,
@@ -401,6 +420,7 @@
 			baseConfigurationReference = F5BAC00D6E5A36765B9A48E3 /* Pods-Prototype1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Prototype1/Prototype1.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -410,8 +430,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.prototype1.ru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "db82c24b-b571-4055-be4e-165e92540975";
-				PROVISIONING_PROFILE_SPECIFIER = prototype1;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Prototype1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -421,17 +443,19 @@
 			baseConfigurationReference = 6A57C35CFF3BCFEB1A3C71B6 /* Pods-Prototype1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Prototype1/Prototype1.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JAJ58996GT;
 				INFOPLIST_FILE = Prototype1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = home.prototype1.ru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "47b16b3c-6a21-4239-b152-5225a76046ec";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: home.prototype1.ru";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Prototype1-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

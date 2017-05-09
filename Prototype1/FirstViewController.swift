@@ -112,32 +112,41 @@ class FirstViewController: UIViewController  {
         })
     }
     
-    
-    @IBAction func btnPlayPressed(_ sender: Any) {
-        do {try AVAudioSession.sharedInstance().setCategory( AVAudioSessionCategoryPlayback)
-            
-            do {try AVAudioSession.sharedInstance().setActive(true)
-                UIApplication.shared.beginReceivingRemoteControlEvents()
-//                let commandCenter =  MPRemoteCommandCenter.shared()
-//                commandCenter.nextTrackCommand.isEnabled = true
-//                commandCenter.nextTrackCommand.addTarget(self, action:#selector(nextTrackCommandSelector()))
-            } catch let error as NSError {
-                print(error)}
-            } catch let error as NSError {
-                print(error)}
-        let url = URL(string: "http://icecast.vgtrk.cdnvideo.ru/mayakfm_aac_64kbps")
-//        let url = URL(string: "http://hi.entranced.fm")
-
-        let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
-        
-        player = AVPlayer(playerItem: playerItem)
-        player?.play()
-    }
+ 
     
     @IBAction func btnPausePressed(_ sender: Any) {
-        player?.pause()
-        
-      //  print(player?.status)
+        if (player != nil) {
+            player = nil
+            let newBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.play, target: self, action: #selector(FirstViewController.btnPausePressed(_:)))
+            navBar.leftBarButtonItem = newBarButton
+            
+        } else {
+            
+           
+            
+            do {try AVAudioSession.sharedInstance().setCategory( AVAudioSessionCategoryPlayback)
+                
+                do {try AVAudioSession.sharedInstance().setActive(true)
+                    UIApplication.shared.beginReceivingRemoteControlEvents()
+                    //                let commandCenter =  MPRemoteCommandCenter.shared()
+                    //                commandCenter.nextTrackCommand.isEnabled = true
+                    //                commandCenter.nextTrackCommand.addTarget(self, action:#selector(nextTrackCommandSelector()))
+                } catch let error as NSError {
+                    print(error)}
+            } catch let error as NSError {
+                print(error)}
+            //let url = URL(string: "http://icecast.vgtrk.cdnvideo.ru/mayakfm_aac_64kbps")
+                    let url = URL(string: "http://hi.entranced.fm")
+            
+            let playerItem: AVPlayerItem = AVPlayerItem(url: url!)
+            
+            player = AVPlayer(playerItem: playerItem)
+            player?.play()
+            
+            let newBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.pause, target: self, action: #selector(FirstViewController.btnPausePressed(_:)))
+            navBar.leftBarButtonItem = newBarButton
+        }
+
     }
 
     @IBAction func btnAvaPressed(_ sender: Any) {

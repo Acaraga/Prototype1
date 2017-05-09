@@ -12,6 +12,10 @@ pod 'Firebase/Storage'
 pod 'Firebase/Messaging'
 pod 'SwiftyJSON', '~> 3.1'
 pod ‘Alamofire’
+pod 'KINWebBrowser'
+pod 'MWFeedParser', '~> 1.0'
+pod 'FrostedSidebar', '~> 1.0'
+pod 'AFNetworking', '~> 3.0'
 # Pods for Prototype1
 
 end
