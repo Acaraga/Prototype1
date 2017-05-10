@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Print full message.
         print("***1 \(userInfo)")
-        showAlertFCM(withData: userInfo)
+        //showAlertFCM(withData: userInfo)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Print full message.
         print("***2 \(userInfo)")
-        showAlertFCM(withData: userInfo)
+        //showAlertFCM(withData: userInfo)
        completionHandler(UIBackgroundFetchResult.newData)
     }
     
@@ -187,7 +187,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         // Print full message.
         print("***3 \(userInfo)")
-        showAlertFCM(withData: userInfo)
+        //showAlertFCM(withData: userInfo)
         
         // Change this to your preferred presentation option
         completionHandler([])
@@ -205,7 +205,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         // Print full message.
         print("***4 \(userInfo)")
-        showAlertFCM(withData: userInfo)
+        //showAlertFCM(withData: userInfo)
         
         completionHandler()
     }
@@ -217,7 +217,7 @@ extension AppDelegate : FIRMessagingDelegate {
     func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
         print("***5 \(remoteMessage.appData)")
         
-        showAlertFCM(withData: remoteMessage.appData)
+        //showAlertFCM(withData: remoteMessage.appData)
     }
 }
 // [END ios_10_data_message_handling]

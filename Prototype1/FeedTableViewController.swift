@@ -9,9 +9,11 @@
 import UIKit
 //import FrostedSidebar
 import AFNetworking
+import SwiftyJSON
+import Firebase
 
 var feedItems = [MWFeedItem]()
-
+var newsItems = [(ttl: String, dsc: String, img: String, dt: String, url: String)]()
 
 class FeedTableViewController: UITableViewController, MWFeedParserDelegate {
 
@@ -22,7 +24,25 @@ class FeedTableViewController: UITableViewController, MWFeedParserDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //=========================== Load News from firebase ======================================================
         
+        FIRDatabase.database().reference().child("news").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let u_value = snapshot.value {
+                
+                let json = JSON (u_value)
+                for (key, subjson) in json {
+                    
+                     newsItems.append((subjson["ttl"].stringValue , subjson["dsc"].stringValue, key,subjson["dt"].stringValue,subjson["url"].stringValue))
+                    
+                        
+                
+            }
+                self.tableView.reloadData()
+  
+            }
+        })
+    
+
 //        sidebar = FrostedSidebar(itemImages: [
 //            UIImage(named: "add")!,
 //            UIImage(named: "globe")!,
@@ -85,12 +105,15 @@ class FeedTableViewController: UITableViewController, MWFeedParserDelegate {
     
     func feedParser(_ parser: MWFeedParser!, didParseFeedItem item: MWFeedItem!) {
         feedItems.append(item)
+        print (item)
     }
     
     
     
     func request() {
-        let url = URL(string: "http://www.texanerin.com/feed/")
+        //let url = URL(string: "http://www.texanerin.com/feed/")
+        let url = URL(string: "https://www.flyschool.ru/about/news/rss/")
+        
         let feedParser = MWFeedParser(feedURL: url)
         feedParser?.delegate = self
         feedParser?.parse()
@@ -105,7 +128,7 @@ class FeedTableViewController: UITableViewController, MWFeedParserDelegate {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 420
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -115,79 +138,91 @@ class FeedTableViewController: UITableViewController, MWFeedParserDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return feedItems.count
+        return newsItems.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedTableViewCell
+        
+        
+        let nItem = newsItems[indexPath.row]
+        cell.itemAuthorLbl.text = nItem.ttl
+        cell.itemTitleLbl.text = nItem.dsc
+        cell.itemDateLbl.text = nItem.dt
+        cell.itemImageView.image = UIImage(named: nItem.img)
 
-        let item = feedItems[indexPath.row] as MWFeedItem?
-        cell.itemTitleLbl.text = item?.title
-        cell.itemAuthorLbl.text = "" // \(String(describing: item?.author))"
+//        let item = feedItems[indexPath.row] as MWFeedItem?
+//        cell.itemTitleLbl.text = item?.title
+//        cell.itemAuthorLbl.text = ""
+//        var imageSrc = ""
+//        let json = JSON( item?.enclosures.first!)
+//        
+//        for (key, value) in json {
+//            if key == "url" {
+//                imageSrc = value.stringValue
+//            }
+//        }
+//        
+//        
+//        if imageSrc != "" {
+//            
+//            cell.itemImageView.setImageWith( NSURL(string: imageSrc)! as URL , placeholderImage: UIImage(named: "globe"))
+//        }
+
+        
+        
+        // \(String(describing: item?.author))"
         // Configure the cell...
-        cell.itemImageView.image = UIImage(named: "globe")
+//        cell.itemImageView.image = UIImage(named: "globe")
+//        
+//        if item?.content != nil {
+//            
+//            let htmlContent = item!.content as NSString
+//            var imageSrc = ""
+//            
+//            if htmlContent.length > 0 {
+//                let rangeOfString = NSMakeRange(0, htmlContent.length)
+//                do {
+//                    
+//                    let regex = try NSRegularExpression(pattern: "(<enclosure.*?url=\")(.*?)(\".*?>)")
+//                    let match = regex.firstMatch(in: htmlContent as String, options: [], range: rangeOfString)
+//                    if (match != nil) {
+//                        let imageURL = htmlContent.substring(with: match!.rangeAt(2)) as NSString
+//                        print("**** \(imageURL)")
+//                        if NSString(string: imageURL.lowercased).range(of: "feedburner").location == NSNotFound {
+//                            imageSrc = imageURL as String
+//                        }
+//                        if imageSrc != "" {
+//                            
+//                            cell.itemImageView.setImageWith( NSURL(string: imageSrc)! as URL , placeholderImage: UIImage(named: "globe"))
+//                        }
+//                    }
+//                } catch {
+//                    print (error.localizedDescription)
+//                }
+//                
+//            }
+//            
+//        }
+//        
         
-        if item?.content != nil {
-            
-            let htmlContent = item!.content as NSString
-            var imageSrc = ""
-            
-            if htmlContent.length > 0 {
-            let rangeOfString = NSMakeRange(0, htmlContent.length)
-            do {
-                
-                let regex = try NSRegularExpression(pattern: "(<img.*?src=\")(.*?)(\".*?>)")
-                let match = regex.firstMatch(in: htmlContent as String, options: [], range: rangeOfString)
-                if (match != nil) {
-                    let imageURL = htmlContent.substring(with: match!.rangeAt(2)) as NSString
-                    print("**** \(imageURL)")
-                    if NSString(string: imageURL.lowercased).range(of: "feedburner").location == NSNotFound {
-                        imageSrc = imageURL as String
-                    }
-                    if imageSrc != "" {
-                        
-                        cell.itemImageView.setImageWith( NSURL(string: imageSrc)! as URL , placeholderImage: UIImage(named: "globe"))
-                        
-                    }
-                    
-                    
-                }
-                
-            } catch {
-                print (error.localizedDescription)
-            }
-            
-            
-                    
-                
-                
-                
-            
-            
-           
-                
-            }
-            
-        }
-        
-        
-        
-        
-        
-        
+       
         
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = feedItems[indexPath.row] as MWFeedItem
+        //let item = feedItems[indexPath.row] as MWFeedItem
+        let nItem = newsItems[indexPath.row]
+        if nItem.url != "" {
         let webBrowser = KINWebBrowserViewController()
-        let url = URL(string: item.link)
+        let url = URL(string: nItem.url)
+       // print ("\(url)")
         webBrowser.load(url)
         self.navigationController?.pushViewController(webBrowser, animated: true)
-        
+        }
     }
 
     /*

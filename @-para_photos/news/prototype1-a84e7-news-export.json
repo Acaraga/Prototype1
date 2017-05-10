@@ -1,0 +1,68 @@
+{
+  "010" : {
+    "dsc" : "Продолжаем цикл статей из CrossCounry",
+    "ttl" : "10 советов, как летать с умом от Гэвина МакКлурга",
+    "dt"  : "21 ноября 2016 г.",
+    "url" : "https://www.flyschool.ru/about/news/10-tips-on-how-to-fly-with-the-mind-of-gavin-mcclurg/"
+  },
+  "011" : {
+    "dsc" : "А для нуждающихся в новом крыле прямо сейчас предложили скидку",
+    "ttl" : "Ozone обозначили сроки выхода Enzo 3"
+    "dt"  : "22 ноября 2016 г.",
+    "url" : "https://www.flyschool.ru/about/news/ozone-has-outlined-the-release-dates-of-enzo-3/"
+  },
+  "012" : {
+    "dsc" : "Лётная школа Вектор возвращается в Гималаи. Планируется набор двух групп.",
+    "ttl" : "Едем в Непал"
+    "dt"  : "27 ноября 2016 Г.",
+    "url" : "https://www.flyschool.ru/about/news/going-to-nepal/"
+  },
+  "013" : {
+    "dsc" : "Рассел Огден делится своими впечатлениями",
+    "ttl" : "Из истории создания Zeno"
+    "dt"  : "30 ноября 2016 г.",
+    "url" : "https://www.flyschool.ru/about/news/from-the-history-of-zeno/"
+  },
+  "014" : {
+    "dsc" : "Спешите воспользоваться нашим спец-предложением и купить новое крыло к началу лётного сезона!",
+    "ttl" : "Крылья Ozone с мега скидкой!"
+    "dt"  : "15 января 2017 г.",
+    "url" : "https://www.flyschool.ru/about/news/ozone-wings-with-the-mega-discount/"
+  },
+  "015" : {
+    "dsc" : "Собираемся в Непал, Прованс и Турцию.",
+    "ttl" : "Запись на весенние выезды школы"
+    "dt"  : "19 января 2017 г.",
+    "url" : "https://www.flyschool.ru/about/news/the-entry-for-spring-school-trips/"
+  },
+  "016" : {
+    "dsc" : "Аналитическая статья об актуальном положении дел в сегменте топовых спортивных крыльев от Сергея Лазарева-Марченко (MyMySer)",
+    "ttl" : "Ozone Zeno и Gin Boomerang 11. “Маркетинговый маневр” Ozone"
+    "dt"  : "20 января 2017 г.",
+    "url" : "https://www.flyschool.ru/about/news/zeno-ozone-and-gin-boomerang-11-marketing-maneuver-ozone/"
+  },
+  "017" : {
+    "dsc" : "Новые крылья к новому сезону!",
+    "ttl" : "DOzone Delta 3, Enzo 3, Ultralite 4 и другие новости!"
+    "dt"  : "22 февраля 2017 г.",
+    "url" : "https://www.flyschool.ru/about/news/out-ozone-delta-3-/"
+  },
+  "018" : {
+    "dsc" : "Ура, товарищи! Всех поздравляем с открытием лебедочного сезона 2017 в Кончинке!",
+    "ttl" : "Открытие сезона 2017!"
+    "dt"  : "26 марта 2017 г.",
+    "url" : "https://www.flyschool.ru/about/news/open-season-2017/"
+  },
+  "019" : {
+    "dsc" : "Размер MS готов! Ждем в ближайшем времени сертификацию остальных",
+    "ttl" : "Delta 3 MS доступна к заказу"
+    "dt"  : "19 апреля 2017 г.",
+    "url" : "https://www.flyschool.ru/about/news/delta-3-ms-available-to-order/"
+  },
+  "020" : {
+    "dsc" : "L и S",
+    "ttl" : "Delta 3. Доступны к заказу ещё 2 размера"
+    "dt"  : "28 апреля 2017 г.",
+    "url" : "https://www.flyschool.ru/about/news/delta-3-available-to-order-2-more-size/"
+  }
+}

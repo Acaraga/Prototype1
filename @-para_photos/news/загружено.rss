@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0">
+<channel>
+<title>Новости</title>
+<link>http://www.flyschool.ru</link>
+<description>Дорогие коллеги, братья по небу, курсанты и одномышленники!
+
+Подходит к концу сезон, а значит на горизонте начинает маячить ежегодное событие под названием
+</description>
+<lastBuildDate>Sat, 29 Apr 2017 02:18:41 +0300</lastBuildDate>
+<ttl>60</ttl>
+<item>
+	<title>Delta 3. Доступны к заказу ещё 2 размера.</title>
+	<link>/about/news/delta-3-available-to-order-2-more-size/</link>
+	<description>L и S</description>
+			<enclosure url="https://www.flyschool.ru/upload/iblock/7d1/7d154d66ad7e173d75d023513fc4645f.jpg" length="1795" type="image/jpeg"/>
+				<pubDate>Fri, 28 Apr 2017 00:00:00 +0300</pubDate>
+</item>
+<item>
+	<title>Delta 3 MS доступна к заказу</title>
+	<link>/about/news/delta-3-ms-available-to-order/</link>
+	<description>Размер MS готов! Ждем в ближайшем времени сертификацию остальных</description>
+			<enclosure url="https://www.flyschool.ru/upload/iblock/3d5/3d57ef31bea7da4ddb7dfa77eeee2bf8.jpg" length="3316" type="image/jpeg"/>
+				<pubDate>Wed, 19 Apr 2017 00:00:00 +0300</pubDate>
+</item>
+</channel>
+</rss>
